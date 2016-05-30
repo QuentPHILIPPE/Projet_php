@@ -27,7 +27,8 @@
             if(empty($errors)){
               
               $insertUser = $connexion->prepare("INSERT INTO User SET adresseMail = ?, pseudo = ?, mdpUser = ?");
-              $insertUser->execute([$_POST['email'], $_POST['pseudo'], $_POST['mdp']]);
+              $password = password_hash($_POST['mdp'], PASSWORD_BCRYPT);
+              $insertUser->execute([$_POST['email'], $_POST['pseudo'], $password]);
             }    
         }
 
