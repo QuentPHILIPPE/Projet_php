@@ -4,6 +4,28 @@
         <title>Inscription</title>
     </head>
     <body>
+    <?php
+
+        if(isset($_POST)){
+            
+            $errors = array();
+            // extract($_POST);
+          
+            if(empty($_POST['pseudo'])){
+                $errors['pseudo'] = "Veuillez entrer un pseudo";
+            }
+
+            if(empty($_POST['email'])){
+                $errors['email'] = "Adresse email non renseignée";
+            }
+
+            if(empty($_POST['mdp']) || $_POST['mdp'] != ($_POST['mdpConfirm'])){
+                $errors['mdp'] = "Mot de passe invalide";
+            }
+        }
+
+    ?>
+      
         <form action="" method="POST">
             <fieldset>
                 <legend>Inscription</legend>
