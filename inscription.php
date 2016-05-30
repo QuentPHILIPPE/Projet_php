@@ -10,6 +10,7 @@
             
             $errors = array();
             // extract($_POST);
+            require_once 'connexion.php';
           
             if(empty($_POST['pseudo'])){
                 $errors['pseudo'] = "Veuillez entrer un pseudo";
@@ -22,10 +23,16 @@
             if(empty($_POST['mdp']) || $_POST['mdp'] != ($_POST['mdpConfirm'])){
                 $errors['mdp'] = "Mot de passe invalide";
             }
+          
+            if(empty($errors)){
+              
+              $insertUser = $connexion->prepare("INSERT INTO User SET adresseMail = ?, pseudo = ?, mdpUser = ?");
+              $insertUser->execute([$_POST['email'], $_POST['pseudo'], $_POST['mdp']]);
+            }    
         }
 
     ?>
-      
+
         <form action="" method="POST">
             <fieldset>
                 <legend>Inscription</legend>
