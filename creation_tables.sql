@@ -1,5 +1,5 @@
 CREATE TABLE User(
-    adresseMail VARCHAR(50) PRIMARY KEY AUTO_INCREMENT,
+    adresseMail VARCHAR(50) PRIMARY KEY,
     nom VARCHAR(20) NOT NULL,
     prenom VARCHAR(20) NOT NULL,
     pseudo VARCHAR(20) NOT NULL,
