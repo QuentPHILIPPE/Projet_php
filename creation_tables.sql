@@ -1,14 +1,10 @@
 CREATE TABLE User(
     adresseMail VARCHAR(50) PRIMARY KEY,
-    nom VARCHAR(20) NOT NULL,
-    prenom VARCHAR(20) NOT NULL,
     pseudo VARCHAR(20) NOT NULL,
     mdpUser VARCHAR(25) NOT NULL
 );
 
 CREATE TABLE Administrateur(
-    idAdmin INT PRIMARY KEY NOT NULL,
-    pseudo VARCHAR(20) NOT NULL,
     adresseMail VARCHAR(50)
 );
 
