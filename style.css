@@ -1,0 +1,57 @@
+.headfoot {
+  padding: 25px 0px;
+  /*Marge verticale*/
+  background-color: #191970;
+  /*Couleur de fond*/
+  /*texte centré*/
+}
+
+.entete {
+  /*width:930px;Taille de la colonne centrée moins le padding*/
+  background-color: #191970;
+  /*Couleur de fond*/
+  margin: auto;
+  /*centrer la colone*/
+  padding: 25px;
+  /*margin interne*/
+}
+
+legend {
+  font-size: 50px;
+  color: #1919;
+}
+
+div {
+  background-color: #191970;
+  color: white;
+}
+
+a {
+  font-size: 28px;
+  color: #FFF;
+  text-decoration: none;
+  margin-left: 150px;
+}
+
+a:hover {
+  color: #00BFFF;
+}
+
+label {
+  display: block;
+  width: 150px;
+  float: left;
+  font-size: 17px;
+  font-weight: bold;
+  color: #191970;
+}
+
+#submit {
+  width: 100px;
+  display: block;
+  margin-left: 170px;
+}
+
+input {
+  border-radius: 6px;
+}
