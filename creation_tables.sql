@@ -53,7 +53,6 @@ CREATE TABLE Commentaire(
 CREATE TABLE Groupe(
     idGroupe INT PRIMARY KEY AUTO_INCREMENT,
     nomGroupe VARCHAR(30),
-    artiste INT NOT NULL,
     lienWiki VARCHAR(50)
 );
 
@@ -64,4 +63,4 @@ ALTER TABLE Morceaux ADD FOREIGN KEY (artiste) REFERENCES Artiste(idartiste);
 ALTER TABLE Morceaux ADD FOREIGN KEY (album) REFERENCES Album(idAlbum);
 ALTER TABLE Commentaire ADD FOREIGN KEY (adresseMail) REFERENCES User(adresseMail);
 ALTER TABLE Commentaire ADD FOREIGN KEY (album) REFERENCES Album(idAlbum);
-ALTER TABLE Groupe ADD FOREIGN KEY (artiste) REFERENCES Artiste(idartiste);
+ALTER TABLE Artiste ADD FOREIGN KEY (groupe) REFERENCES Groupe(idGroupe);
