@@ -53,10 +53,10 @@ CREATE TABLE Groupe(
 );
 
 
-ALTER TABLE Administrateur ADD FOREIGN KEY (adresseMail) REFERENCES User(adresseMail);
+ALTER TABLE Administrateur ADD FOREIGN KEY (adresseMail) REFERENCES Utilisateur(adresseMail);
 ALTER TABLE Album ADD FOREIGN KEY (artiste) REFERENCES Artiste(idartiste);
 ALTER TABLE Morceaux ADD FOREIGN KEY (artiste) REFERENCES Artiste(idartiste);
 ALTER TABLE Morceaux ADD FOREIGN KEY (album) REFERENCES Album(idAlbum);
-ALTER TABLE Commentaire ADD FOREIGN KEY (adresseMail) REFERENCES User(adresseMail);
+ALTER TABLE Commentaire ADD FOREIGN KEY (adresseMail) REFERENCES Utilisateur(adresseMail);
 ALTER TABLE Commentaire ADD FOREIGN KEY (album) REFERENCES Album(idAlbum);
 ALTER TABLE Artiste ADD FOREIGN KEY (groupe) REFERENCES Groupe(idGroupe);
