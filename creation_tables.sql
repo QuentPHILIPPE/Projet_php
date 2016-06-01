@@ -23,7 +23,8 @@ CREATE TABLE Album(
     dateSortie DATE,
     note INT,
     lienYoutube VARCHAR(100),
-    artiste INT NOT NULL
+    artiste INT,
+    groupe INT 
 );
 
 CREATE TABLE Morceaux(
@@ -55,7 +56,8 @@ CREATE TABLE Groupe(
 
 ALTER TABLE Administrateur ADD FOREIGN KEY (adresseMail) REFERENCES Utilisateur(adresseMail);
 ALTER TABLE Album ADD FOREIGN KEY (artiste) REFERENCES Artiste(idartiste);
-ALTER TABLE Morceaux ADD FOREIGN KEY (artiste) REFERENCES Artiste(idartiste);
+ALTER TABLE Album ADD FOREIGN KEY (groupe) REFERENCES Groupe(idGroupe);
+ALTER TABLE Morceaux ADD FOREIGN KEY (artiste) REFERENCES Artiste(idArtiste);
 ALTER TABLE Morceaux ADD FOREIGN KEY (album) REFERENCES Album(idAlbum);
 ALTER TABLE Commentaire ADD FOREIGN KEY (adresseMail) REFERENCES Utilisateur(adresseMail);
 ALTER TABLE Commentaire ADD FOREIGN KEY (album) REFERENCES Album(idAlbum);
