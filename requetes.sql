@@ -28,4 +28,8 @@ FROM Artiste Art
 SELECT A.nomAlbum
 FROM Album A
 
-//
+//Membres dun groupe\\
+
+SELECT Art.nomArtiste, Art.dateNaissance, G.nomGroupe
+FROM Artiste Art, Groupe G
+WHERE Art.groupe = 1
