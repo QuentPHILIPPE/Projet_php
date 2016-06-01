@@ -1,7 +1,7 @@
-CREATE TABLE User(
+CREATE TABLE Utilisateur(
     adresseMail VARCHAR(50) PRIMARY KEY,
     pseudo VARCHAR(20) NOT NULL,
-    mdpUser VARCHAR(25) NOT NULL
+    mdpU VARCHAR(25) NOT NULL
 );
 
 CREATE TABLE Administrateur(
