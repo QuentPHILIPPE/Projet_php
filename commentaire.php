@@ -1,14 +1,12 @@
 <?php 
 
 class Commentaire {
-    public $idCommentaire, //int
     public $utilisateur //User
     public $album //Album
     public $message //string
     public $note //int
     
-    function __construct($id,$user,$message,$album,$note)    {
-        $this->idCommentaire = $id;
+    function __construct($user,$message,$album,$note)    {
         $this->utilisateur = $user;
         $this->album = $album;
         $this->message = $message;
