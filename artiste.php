@@ -1,20 +1,18 @@
 <?php 
 
 class Artiste {
-    public $idArtiste, //int
-    public $nomArtiste //string
-    public $dateNaissance //date
-    public $biographie //string
-    public $membresGroupe[] //string
-    public $lienWiki //string
+    public $nomArtiste; //string
+    public $dateNaissance; //date
+    public $biographie; //string
+    public $lienWiki; //string
+    public $groupe; //int
     
-    function __construct($id,$nom,$date,$bio,$membres,$lien)    {
-        $this->idArtiste = $id;
+    function __construct($nom,$date,$bio,$groupe,$lien)    {
         $this->nomArtiste = $nom;
         $this->dateNaissance = $date;
         $this->biographie = $bio;
-        $this->membresGroupe = $membres;
         $this->lienWiki = $lien;
+        $this->groupe = $groupe;
     }
     
     function getNom() {
@@ -29,8 +27,8 @@ class Artiste {
         return $this->biographie;
     }
     
-    function getGroupe() {  //A completer
-        return $this->membresGroupe;
+    function getGroupe() {  
+        return $this->groupe;
     }
     
     function getWiki() {
@@ -49,8 +47,8 @@ class Artiste {
         $this->biographie=$bio;
     }
     
-    function setGroupe($membre) {  //A completer ( liste chainée ?)
-        $this->membresGroupe=$membre;
+    function setGroupe($groupe) {  
+        $this->groupe=$groupe;
     }
     
     function setWiki($wiki) {
