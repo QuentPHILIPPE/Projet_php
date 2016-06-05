@@ -10,7 +10,8 @@ require_once 'connexion.php';
 <head>
   <title>
   <?php
-    $titre = $connexion->query("SELECT Art.nomArtiste FROM Artiste Art WHERE Art.idArtiste = 2");
+    $id = $_POST["artiste"];
+    $titre = $connexion->query("SELECT Art.nomArtiste FROM Artiste Art WHERE Art.idArtiste = '$id'");
     $nom = $titre->fetch(PDO::FETCH_ASSOC);
     echo $nom['nomArtiste'];
   ?>
@@ -21,7 +22,8 @@ require_once 'connexion.php';
     
     <a class="embedly-card" href=
     <?php
-        $lien = $connexion->query("SELECT Art.lienWiki, Art.nomArtiste FROM Artiste Art WHERE Art.idArtiste = 2");
+        $id = $_POST["artiste"];
+        $lien = $connexion->query("SELECT Art.lienWiki, Art.nomArtiste FROM Artiste Art WHERE Art.idArtiste = '$id'");
         $link = $lien->fetch(PDO::FETCH_ASSOC);
         echo "'" . $link['lienWiki'] . "'>" . $link['nomArtiste']."</a>";
     ?>
@@ -37,7 +39,9 @@ require_once 'connexion.php';
     </thead>
     <?php
     
-        $resultats=$connexion->query("SELECT A.nomAlbum,A.dateSortie,A.note FROM Album A WHERE artiste = 2");
+        $id = $_POST["artiste"];
+    
+        $resultats=$connexion->query("SELECT A.nomAlbum,A.dateSortie,A.note FROM Album A WHERE artiste = '$id'");
 
         while( $album = $resultats->fetch(PDO::FETCH_ASSOC) ) {
  
