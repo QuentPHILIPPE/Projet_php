@@ -16,7 +16,7 @@
       </tr>
     </thead>
   <?php
-         require_once 'connexion.php';
+        require_once 'connexion.php';
  
         $resultats=$connexion->query("SELECT A.nomAlbum,A.dateSortie,A.note, A.lienYoutube FROM Album A ");
 
