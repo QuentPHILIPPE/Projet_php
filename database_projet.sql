@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 06 Juin 2016 à 01:01
+-- Généré le :  Lun 06 Juin 2016 à 13:46
 -- Version du serveur :  10.1.13-MariaDB
 -- Version de PHP :  5.6.21
 
@@ -131,20 +131,6 @@ INSERT INTO `commentaire` (`idCommentaire`, `pseudo`, `album`, `note`, `message`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `morceaux`
---
-
-CREATE TABLE `morceaux` (
-  `artiste` int(11) NOT NULL,
-  `nomMorceau` varchar(30) NOT NULL,
-  `dureeChanson` float DEFAULT NULL,
-  `album` int(11) DEFAULT NULL,
-  `lienYoutube` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `utilisateur`
 --
 
@@ -196,13 +182,6 @@ ALTER TABLE `commentaire`
   ADD KEY `pseudo` (`pseudo`);
 
 --
--- Index pour la table `morceaux`
---
-ALTER TABLE `morceaux`
-  ADD PRIMARY KEY (`artiste`,`nomMorceau`),
-  ADD KEY `album` (`album`);
-
---
 -- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
@@ -251,13 +230,6 @@ ALTER TABLE `album`
 ALTER TABLE `commentaire`
   ADD CONSTRAINT `commentaire_ibfk_2` FOREIGN KEY (`album`) REFERENCES `album` (`idAlbum`),
   ADD CONSTRAINT `commentaire_ibfk_3` FOREIGN KEY (`pseudo`) REFERENCES `utilisateur` (`pseudo`);
-
---
--- Contraintes pour la table `morceaux`
---
-ALTER TABLE `morceaux`
-  ADD CONSTRAINT `morceaux_ibfk_1` FOREIGN KEY (`artiste`) REFERENCES `artiste` (`idArtiste`),
-  ADD CONSTRAINT `morceaux_ibfk_2` FOREIGN KEY (`album`) REFERENCES `album` (`idAlbum`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
