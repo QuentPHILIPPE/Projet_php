@@ -20,14 +20,19 @@ if(isset($_GET['pseudo'])){
 </head>
   
 <body>
-    
-    
+       
       <fieldset>
         <legend>Profil de <?php echo $userinfo['pseudo'];?></legend>
 
          <h3> <a href="afficherAlbum.php">Afficher les albums</a> </h3>
          <h3> <a href="afficherArtiste.php">Afficher les artistes </a> </h3>
+      <?php
+        if($userinfo['pseudo'] == $_SESSION['pseudo']){
+          
+      ?>
          <h3> <a href="deconnexion.php">Déconnexion</a> </h3>
+        
+      <?php  } ?>    
           
       </fieldset>
     </form>
