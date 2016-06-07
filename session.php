@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
   if(isset($_POST) && !empty($_POST['pseudo']) && !empty($_POST['mdp'])){
     require_once 'connexion.php';
     
@@ -10,9 +10,13 @@
     $userexist = $requete->rowCount();
     
     if($userexist == 1){
-      echo "vous etes co" . $_POST['pseudo'];  
+        $userinfo = $requete->fetch();
+        $_SESSION['pseudo'] = $userinfo['pseudo'];
+        $_SESSION['email'] = $userinfo['email'];
+        header("location: accueil.php?pseudo=".$_SESSION['pseudo']);
     } else {
-      echo "mauvais identifiant ou mauvais mot de passe";
+      
+        echo "mauvais identifiant ou mauvais mot de passe";
     }
   }
 ?>
