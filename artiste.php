@@ -1,58 +1,59 @@
 <?php 
 
 class Artiste {
+    public $idArtiste;
     public $nomArtiste; //string
-    public $dateNaissance; //date
-    public $biographie; //string
     public $lienWiki; //string
-    public $groupe; //int
     
-    function __construct($nom,$date,$bio,$groupe,$lien)    {
+    function __construct($nom,$lien)    {
         $this->nomArtiste = $nom;
-        $this->dateNaissance = $date;
-        $this->biographie = $bio;
         $this->lienWiki = $lien;
-        $this->groupe = $groupe;
+        
+        $db = Database::getInstance();
+		$sql = "INSERT INTO Artiste Art SET Art.nomArtiste = :nom, Art.lienWiki = :wiki";
+		$stmt = $db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$stmt->execute($nom,$wiki);
+        
+        $sql = "SELECT Art.idArtiste FROM Artiste Art WHERE Art.nomArtiste = :nom";
+		$stmt = $db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$stmt->execute($nom);
+		$this->idArtiste = $stmt->fetch(); 
     }
     
     function getNom() {
-        return $this->nomArtiste;
-    }
-    
-    function getDateNaiss() {
-        return $this->dateNaissance;
-    }
-    
-    function getBio() {
-        return $this->biographie;
-    }
-    
-    function getGroupe() {  
-        return $this->groupe;
+        $db = Database::getInstance();
+		$sql = "SELECT Art.nomArtiste FROM Artiste Art WHERE Art.idArtiste = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$stmt->execute($id);
+		return $stmt->fetch();
     }
     
     function getWiki() {
-        return $this->lienWiki;
+        $db = Database::getInstance();
+		$sql = "SELECT Art.lienWiki FROM Artiste Art WHERE Art.idArtiste = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$stmt->execute($id);
+		return $stmt->fetch();
     }
     
-    function setNom($nom) {
-        $this->nomArtiste=$nom;
+    function setNom($nom, $id) {
+        $db = Database::getInstance();
+		$sql = "UPDATE Artiste Art SET Art.nomArtiste = :nom WHERE Art.idArtiste = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$stmt->execute($nom,$id);
     }
     
-    function setDateNaiss($date) {
-        $this->dateNaissance=$date;
-    }
-    
-    function setBio($bio) {
-        $this->biographie=$bio;
-    }
-    
-    function setGroupe($groupe) {  
-        $this->groupe=$groupe;
-    }
-    
-    function setWiki($wiki) {
-        $this->lienWiki=$wiki;
+    function setWiki($wiki, $id) {
+        $db = Database::getInstance();
+		$sql = "UPDATE Artiste Art SET Art.lienWiki = :wiki WHERE Art.idArtiste = :id";
+		$stmt = $db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$stmt->execute($wiki,$id);
     }
     
 }
