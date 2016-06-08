@@ -10,10 +10,10 @@ class Album {
     
 	function __construct($nom,$note)	{
         $this->id = $id;
-				$this->nomAlbum = $nom;
-				$this->dateSortie = $date;
+        $this->nomAlbum = $nom;
+	$this->dateSortie = $date;
         $this->note = $note;
-				$this->artiste = $artiste;
+        $this->artiste = $artiste;
         $this->lienLastFm = $lien;
 		
         $db = Database::getInstance();
@@ -99,6 +99,14 @@ class Album {
 		echo "Album bien ajouté !";
 		return $stmt->execute([$nom,$date,$note,$artiste,$lien]);
  	}
+	
+	public static function getFromId( $id ) {
+		$db = Database::getInstance();
+		$sql = "SELECT * FROM Album WHERE idAlbum = :idAlbum";
+		$stmt = $db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "Album");
+		$stmt->execute(array(":idAlbum" => $id));
+		return $stmt->fetch();
 }
 
 
