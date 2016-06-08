@@ -38,5 +38,4 @@ if(isset($_GET['pseudo'])){
     </form>
 
 </body>
-
 </html>
