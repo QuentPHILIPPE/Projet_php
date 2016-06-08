@@ -11,11 +11,6 @@
 
   
 <body>
-
-  <header>
-    <a href="conn.php">Connexion</a>
-  
-  </header>
   
   <?php
 
@@ -43,7 +38,7 @@
             }
  
           
-          if(empty($_POST['mdp']) || $_POST['mdp'] != ($_POST['mdpConfirm'])){
+          if(empty($_POST['mdp']) || ($_POST['mdp'] != $_POST['mdpConfirm'])){
                  $errors['mdp'] = "Mot de passe invalide ou non renseigné";
              } 
           
@@ -58,6 +53,8 @@
         } 
         
     ?>
+  
+    <h2> <a href="session.php">Connexion</a> </h2>
   
     <form action="" method="POST">
       <fieldset>
