@@ -14,7 +14,7 @@ class Artiste {
     
     function getNom() {
         $db = Database::getInstance();
-		$sql = "SELECT Art.nomArtiste FROM Artiste Art WHERE Art.idArtiste = :id";
+		$sql = "SELECT nomArtiste FROM artiste WHERE idArtiste = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$stmt->execute([$id]);
@@ -23,27 +23,31 @@ class Artiste {
     
     function getWiki() {
         $db = Database::getInstance();
-		$sql = "SELECT Art.lienWiki FROM Artiste Art WHERE Art.idArtiste = :id";
+		$sql = "SELECT lienWiki FROM artiste WHERE idArtiste = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute([$id]);
+		$stmt->execute(array(":idArtiste" => $id));
 		return $stmt->fetch();
     }
     
     function setNom($nom, $id) {
         $db = Database::getInstance();
-		$sql = "UPDATE Artiste Art SET Art.nomArtiste = :nom WHERE Art.idArtiste = :id";
+		$sql = "UPDATE artiste SET nomArtiste = :nom WHERE idArtiste = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute([$nom,$id]);
+		$stmt->execute(array(
+			":nomArtiste" => $nomArtiste,
+			"idArtiste" => $id);
     }
     
     function setWiki($wiki, $id) {
         $db = Database::getInstance();
-		$sql = "UPDATE Artiste Art SET Art.lienWiki = :wiki WHERE Art.idArtiste = :id";
+		$sql = "UPDATE artiste SET lienWiki = :wiki WHERE idArtiste = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute([$wiki,$id]);
+		$stmt->execute(array(
+			":lienWiki" => $lien,
+			"idArtiste" => $id);
     }
  
 	
@@ -58,7 +62,7 @@ class Artiste {
 	}
 
 	public static function getId()	{
-		    $sql = "SELECT Art.idArtiste FROM Artiste Art WHERE Art.nomArtiste = :nom";
+		    $sql = "SELECT idArtiste FROM artiste WHERE nomArtiste = :nom";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$stmt->execute([$nom]);
@@ -67,7 +71,7 @@ class Artiste {
 	
 		public static function getFromId( $id ) {
 		$db = Database::getInstance();
-		$sql = "SELECT * FROM Artiste WHERE idArtiste = :idArtiste";
+		$sql = "SELECT * FROM artiste WHERE idArtiste = :idArtiste";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
 		$stmt->execute(array(":idArtiste" => $id));
@@ -75,5 +79,12 @@ class Artiste {
 
 }
 
-
+		public static function getList() {
+		$db = Database::getInstance();
+		$sql = "SELECT * FROM artiste";
+		$stmt = $db->query($sql);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
+		return $stmt->fetchAll();
+	}
+	
 ?>
