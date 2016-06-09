@@ -6,17 +6,17 @@
    <link href='<?php echo BASE_URL."/css/bootstrap.css";?>' rel="stylesheet" />
 </head>
 <body>
-	<div class="container">
-		<div class="page-header">
-			<h1><?php echo $this->artiste->prenomArt." ".$this->artiste->nomArt;?></h1>
+	
+			<h2><?php echo $this->artiste->nomArtiste;?></h2>
+		
 		</div>
-   <!--h2><?php echo $this->contact->toHTML();?></h2-->
-		<p><strong>Biographie : <?php echo ($this->artiste->biographie);?></strong></p><br>
-   <!--a href="mailto:#"><?php echo $this->contact->email; ?></a-->
-   <footer>
-	   <hr>
+			<table class="table table-stripped">
+				<tr><td>Nom de l'artiste</td><td><?php echo $this->artiste->idArtiste." ".$this->artiste->nomArtiste ;?></td></tr>
+				<tr><td>Lien Wikipedia</td><td><?php echo $this->artiste->lienWiki;?></td></tr>
+			</table>
+  
 	   <p class="text-center"><a href='<?php echo BASE_URL?>'>retour à la page d'acceuil</a></p>
-   </footer>
-   </div>
+  
+		</div>
 </body>
 </html>
