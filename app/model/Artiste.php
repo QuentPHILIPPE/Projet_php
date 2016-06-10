@@ -17,7 +17,7 @@ class Artiste {
 		$sql = "SELECT nomArtiste FROM artiste WHERE idArtiste = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute([$id]);
+		$stmt->execute(array(":idArtiste" => $id));
 		return $stmt->fetch();
     }
     
@@ -37,7 +37,7 @@ class Artiste {
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$stmt->execute(array(
 			":nomArtiste" => $nomArtiste,
-			"idArtiste" => $id);
+			":idArtiste" => $id));
     }
     
     function setWiki($wiki, $id) {
@@ -47,7 +47,7 @@ class Artiste {
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$stmt->execute(array(
 			":lienWiki" => $lien,
-			"idArtiste" => $id);
+			":idArtiste" => $id));
     }
  
 	
@@ -58,14 +58,17 @@ class Artiste {
 		$stmt = $db->prepare($sql);
 		//$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
 		echo "Artiste bien inséré";
-		return $stmt->execute([$nom,$lien]);
+		return $stmt->execute(array(
+			":nomArtiste" => $nom,
+			":lienWiki" => $lien));
 	}
 
 	public static function getId()	{
-		    $sql = "SELECT idArtiste FROM artiste WHERE nomArtiste = :nom";
+		$db = Database::getInstance();
+		$sql = "SELECT idArtiste FROM artiste WHERE nomArtiste = :nom";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute([$nom]);
+		$stmt->execute(array(":idArtiste" => $id));
 		$this->idArtiste = $stmt->fetch(); 
 	}
 	
