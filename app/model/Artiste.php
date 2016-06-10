@@ -4,13 +4,13 @@ class Artiste {
     public $idArtiste;
     public $nomArtiste; //string
     public $lienWiki; //string
-    
+ /*   
     function __construct($nom,$lien)    {
         $this->idArtiste = $id;
 				$this->nomArtiste = $nom;
         $this->lienWiki = $lien;
 		}    
-         
+   */      
     
     function getNom() {
         $db = Database::getInstance();
@@ -51,7 +51,7 @@ class Artiste {
     }
  
 	
-	public static function ajoutArtiste($nom, $lien)	{
+	public static function ajouterArtiste($nom, $lien)	{
 		
 		$db = Database::getInstance();
 		$sql = "INSERT INTO artiste (nomArt,lien) VALUES (:nomArt,:lien)";
