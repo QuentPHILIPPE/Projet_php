@@ -1,6 +1,6 @@
 <?php
 class Utilisateur {
-	public $idU, $email, $mdpU, $pseudo, $nomU, $prenomU;
+	public $adresseMail, $pseudo, $mdpU;
   
 	/*//Constructeur
   function __construct($email,$mdpU,$pseudo,$nomU,$prenomU) {
@@ -11,64 +11,45 @@ class Utilisateur {
     $this->prenomU = $prenomU;
   }*/
   function __toString() {
-    return $this->prenomU." ".$this->nomU;
+    return $this->pseudo;
   }
 	//Getteurs
-	public function getId() {
-		return $this->idU;
-	} 
+	 
 	public function getEmail() {
-		return $this->email;
+		return $this->adresseMail;
 	}
 	public function getMdp() {
 		return $this->mdpU;
 	}
-	public function getPseudo() {
-		return $this->pseudo;
-	}
-  public function getPrenom() {
-    return $this->prenomU;
-  }
-  public function getNom() {
-    return $this->nomU;
-  }
+	
 	//Setteurs 
-  public function setId($id) {
-    $this->idU = $id;
-	}
+ 
 	public function setEmail($mail) {
-		$this->email = $mail;
+		$this->adresseMail = $mail;
 	}
 	public function setMdp($mdp) {
 		return $this->mdpU = $mdp; 
 	}
   public function setPseudo($p) {
     $this->pseudo = $p;
-	}
-  public function setPrenom($p) {
-    $this->prenomU = $p;
-  }
-  public function setNom($n) {
-    $this->nomU = $n;
   }
 	
-	public static function getFromId( $id ) {
+	public static function getFromPseudo( $pseudo ) {
 		$db = Database::getInstance();
-		$sql = "SELECT * FROM Utilistateur WHERE idU = $id";
+		$sql = "SELECT * FROM utilistateur WHERE pseudo = $pseudo";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Utilisateur");
-		$stmt->execute(array(":id" => $id));
+		$stmt->execute(array(":pseudo" => $pseudo));
 		return $stmt->fetch();
 	}
 	public static function getList() {
 		$db = Database::getInstance();
-		$sql = "SELECT * FROM Utilisateur";
+		$sql = "SELECT * FROM utilisateur";
 		$stmt = $db->query($sql);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Utilisateur");
 		return $stmt->fetchAll();
 	}
 	
-
 }
 
 ?>
