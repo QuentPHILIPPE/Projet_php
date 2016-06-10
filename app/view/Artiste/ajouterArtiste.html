@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"/>
+   <title>Artiste</title>
+   <link href='<?php echo BASE_URL."/css/bootstrap.css";?>' rel="stylesheet" />
+</head>
+<body>
+		
+		</div>
+			<form action="<?php echo BASE_URL. '/artiste/ajouterArtiste';?>" method="post">
+      <table>
+        <tr>
+          <td><label for="nom">Nom d'artiste</label></td>
+          <td><input type="text" placeholder="Nom" name="nom" required><br></td>
+        </tr>
+        <tr>
+          <td><label for="lienWiki">Lien Wikipedia</label></td>
+          <td><input type="url" placeholder="lien Wiki" name="lienWiki"><br></td>
+        </tr>
+        
+        <tr>
+          <td><input type="submit" class="ajoutNew" value="Ajouter"></td>
+        </tr>
+      </table>
+    </form>
+  
+	   <p class="text-center"><a href='<?php echo BASE_URL?>'>retour à la page d'acceuil</a></p>
+  
+		</div>
+</body>
+</html>
