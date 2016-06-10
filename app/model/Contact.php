@@ -4,14 +4,14 @@ class Contact extends Model {
 	public $id, $nom, $prenom, $adresseMail;
 	public static function setFromId( $id,$data ) {                                                                                                  
 		$db = Database::getInstance();
-		$sql = "UPDATE Utilisateur set nom=:nom,prenom=:prenom,adresseMail=:adresseMail WHERE id = :id";
+		$sql = "UPDATE contacts set nom=:nom,prenom=:prenom,email=:email WHERE id = :id";
 		$stmt = $db->prepare($sql);
 		//$stmt->setFetchMode(PDO::FETCH_CLASS, "Contact");
 		return $stmt->execute(array(
 			":id" => $id,
 			":nom"=>$data['nom'],
 			":prenom"=>$data['prenom'],
-			":adresseMail"=>$data['adresseMail']));
+			":email"=>$data['email']));
 		//return $stmt->fetch();
 	}
 	public function toHTML()
@@ -20,16 +20,16 @@ class Contact extends Model {
 	}
 	public static function getFromId( $id ) {
 		$db = Database::getInstance();
-		$sql = "SELECT * FROM Utilisateur WHERE idU = :idU";
+		$sql = "SELECT * FROM contacts WHERE id = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Contact");
-		$stmt->execute(array(":idU" => $id));
+		$stmt->execute(array(":id" => $id));
 		return $stmt->fetch();
 	}
 
 	public static function getList() {
 		$db = Database::getInstance();
-		$sql = "SELECT * FROM Utilisateur";
+		$sql = "SELECT * FROM contacts";
 		$stmt = $db->query($sql);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Contact");
 		return $stmt->fetchAll();
