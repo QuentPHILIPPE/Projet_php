@@ -21,15 +21,17 @@
 					<?php foreach($this->list as $artiste) : ?>
 					<tr>
 						<td>
-							<?php echo $artiste->nomArt;?>
+							<?php echo $artiste->nomArtiste;?>
 						</td>
-						<td><a href='<?php echo BASE_URL."/artiste/afficher/".$artiste->idArt;?>' 
+						<td><a href='<?php echo BASE_URL."/artiste/afficher/".$artiste->idArtiste;?>' 
 								class="btn btn-info"><i class="icon icon-search"><i></a></td>
 							</tr>
 							<!--a href="contact/afficher/<?php echo $contact->id;?>"></a></td><td><?php echo $contact->prenom." ".$contact->nom;?></td></tr-->
 					<?php endforeach;?>
 				</tbody>
 			</table>
+			<a href='<?php echo BASE_URL."/artiste/ajouterArtiste"?>' class="ajoutNew">Ajouter un nouvel artiste</a>
+			
 			<footer>
 				<hr>
 				<div class="text-center">
