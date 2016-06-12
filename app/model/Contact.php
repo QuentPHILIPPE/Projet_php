@@ -1,7 +1,7 @@
 <?php
 
 class Contact extends Model {
-	public $id, $nom, $prenom, $adresseMail;
+	public $id, $nom, $prenom, $email;
 	public static function setFromId( $id,$data ) {                                                                                                  
 		$db = Database::getInstance();
 		$sql = "UPDATE contacts set nom=:nom,prenom=:prenom,email=:email WHERE id = :id";
