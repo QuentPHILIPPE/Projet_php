@@ -7,13 +7,13 @@ class Album {
 		public $note; // int
 		public $artiste;
 		public $lienLastFm;
-    
+ /*   
 	function __construct($nom,$note)	{
         $this->id = $id;
-        $this->nomAlbum = $nom;
-	$this->dateSortie = $date;
+				$this->nomAlbum = $nom;
+				$this->dateSortie = $date;
         $this->note = $note;
-        $this->artiste = $artiste;
+				$this->artiste = $artiste;
         $this->lienLastFm = $lien;
 		
         $db = Database::getInstance();
@@ -28,7 +28,7 @@ class Album {
 		$stmt->execute($nom);
 		$this->idAlbum = $stmt->fetch(); 
     }
-    
+  */  
     function getNom() {
         $db = Database::getInstance();
 		$sql = "SELECT nomAlbum FROM Album WHERE idAlbum = :id";
@@ -100,14 +100,14 @@ class Album {
 		return $stmt->execute([$nom,$date,$note,$artiste,$lien]);
  	}
 	
-	public static function getFromId( $id ) {
+	public static function getFromId($id) {
 		$db = Database::getInstance();
-		$sql = "SELECT * FROM Album WHERE idAlbum = :idAlbum";
+		$sql = "SELECT * FROM album WHERE idAlbum =:idAlbum";
 		$stmt = $db->prepare($sql);
-		$stmt->setFetchMode(PDO::FETCH_CLASS, "Album");
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "album");
 		$stmt->execute(array(":idAlbum" => $id));
 		return $stmt->fetch();
+	}
 }
-
 
 ?>
