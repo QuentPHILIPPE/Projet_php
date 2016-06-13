@@ -2,24 +2,29 @@
 <html>
 <head>
    <meta charset="utf-8"/>
-   <title>Artistes</title>
+   <title>Artiste</title>
    <link href='<?php echo BASE_URL."/css/bootstrap.css";?>' rel="stylesheet" />
 </head>
 <body>
 	<div class="container">
-		<div class="page-header">
-			<h1>Artiste <?php echo $this->artiste->idArtiste;?></h1>	
+	<div class="page-header">
+				<ul class="nav nav-pills pull-right">
+					<li> <a href="<?php echo BASE_URL.'/artiste';?>">Artistes</a></li>
+					<li> <a href="<?php echo BASE_URL.'/utilisateur';?>">Utilisateurs</a></li>
+					<li> <a href="<?php echo BASE_URL.'/album';?>">Albums</a></li>
+					<li> <a href="<?php echo BASE_URL.'/contact';?>">Contacts</a></li>
+					<li> <a href="#">A propos</a></li>
+					<li> <a href="<?php echo BASE_URL.'/connexion';?>">Connexion</a></li>
+				</ul>
+				<h3 class="muted">Artiste</h3>
 		</div>
-   <!--h2><?php echo $this->contact->toHTML();?></h2-->
-	</div>
-	
-			<table class="table table-stripped">
-				<tr><td>Nom de l'artiste</td><td><?php echo $this->artiste->idArtiste." ".$this->artiste->nomArtiste ;?></td></tr>
-				<tr><td>Lien Wikipedia</td><td><?php echo $this->artiste->lienWiki;?></td></tr>
+		
+				<h1><?php echo $this->artiste->nomArtiste;?></h1>	
+				<table class="table table-stripped">
+				<tr><td>Nom de l'artiste</td><td><?php echo $this->artiste->nomArtiste ;?></td></tr>
+				<tr><td>Lien Wikipedia</td><td><a href= "<?php echo $this->artiste->lienWiki; ?>">Cliquez ici !</a></td></tr>
 			</table>
-  
-	</div>		
-  
+		
    <footer>
 	   <hr>
 	   <p class="text-center"><a href='<?php echo BASE_URL?>'>retour à la page d'acceuil</a></p>
