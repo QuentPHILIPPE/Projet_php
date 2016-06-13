@@ -31,30 +31,29 @@ class Artiste {
     }
     
     function setNom($nom, $id) {
-        $db = Database::getInstance();
-		$sql = "UPDATE artiste SET nomArtiste = :nom WHERE idArtiste = :id";
-		$stmt = $db->prepare($sql);
-		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute(array(
-			":nomArtiste" => $nomArtiste,
-			":idArtiste" => $id));
+			$db = Database::getInstance();
+			$sql = "UPDATE artiste SET nomArtiste = :nom WHERE idArtiste = :id";
+			$stmt = $db->prepare($sql);
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			$stmt->execute(array(
+				":nomArtiste" => $nomArtiste,
+				":idArtiste" => $id));
     }
     
     function setWiki($wiki, $id) {
-        $db = Database::getInstance();
-		$sql = "UPDATE artiste SET lienWiki = :wiki WHERE idArtiste = :id";
-		$stmt = $db->prepare($sql);
-		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute(array(
-			":lienWiki" => $lien,
-			":idArtiste" => $id));
-    }
+			$db = Database::getInstance();
+			$sql = "UPDATE artiste SET lienWiki = :wiki WHERE idArtiste = :id";
+			$stmt = $db->prepare($sql);
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			$stmt->execute(array(
+				":lienWiki" => $lien,
+				":idArtiste" => $id));
+		}
  
 	
-	public static function ajouterArtiste($nom, $lien)	{
-		
+	public static function ajouterArtiste($nom,$lien)	{
 		$db = Database::getInstance();
-		$sql = "INSERT INTO artiste (nomArt,lien) VALUES (:nomArt,:lien)";
+		$sql = "INSERT INTO artiste (nomArtiste,lienWiki) VALUES (:nomArtiste,:lienWiki)";
 		$stmt = $db->prepare($sql);
 		//$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
 		echo "Artiste bien inséré";
@@ -89,5 +88,5 @@ class Artiste {
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
 		return $stmt->fetchAll();
 	}
-	
+}
 ?>
