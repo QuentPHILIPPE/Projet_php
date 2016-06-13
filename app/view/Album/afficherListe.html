@@ -14,18 +14,19 @@
 			<table class="table table-stripped">
 				<thead>
 					<tr>
-						<th>Titre de l'album</th><th>Artiste</th><th></th>
+						<th>Titre de l'album</th><th>Album</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach($this->list as $album) : ?>
 					<tr>
 						<td>
-							<?php echo $album->nomAl;?>
+							<?php echo $album->nomAlbum;?>
 						</td>
-						<td><a href='<?php echo BASE_URL."/album/afficher/".$album->idAl;?>' 
+						
+						<td><a href='<?php echo BASE_URL."/album/afficher/".$album->idAlbum;?>' 
 								class="btn btn-info"><i class="icon icon-search"><i></a></td>
-							</tr>
+					</tr>
 							<!--a href="contact/afficher/<?php echo $contact->id;?>"></a></td><td><?php echo $contact->prenom." ".$contact->nom;?></td></tr-->
 					<?php endforeach;?>
 				</tbody>
