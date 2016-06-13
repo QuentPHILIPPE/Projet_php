@@ -36,7 +36,7 @@ class Utilisateur {
 	
 	public static function getFromPseudo( $pseudo ) {
 		$db = Database::getInstance();
-		$sql = "SELECT * FROM utilistateur WHERE pseudo = $pseudo";
+		$sql = "SELECT * FROM utilisateur WHERE pseudo =:pseudo";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Utilisateur");
 		$stmt->execute(array(":pseudo" => $pseudo));
