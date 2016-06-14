@@ -8,12 +8,11 @@
 <body>
 	<div class="container">
 		<div class="page-header">
-			<h1><?php echo $this->utilisateur->prenomU;?></h1>
+			<h1>Utilisateur : <?php echo $this->utilisateur->pseudo;?></h1>	
 		</div>
    <!--h2><?php echo $this->contact->toHTML();?></h2-->
-		<!--<p><strong>Prenom : <?php echo ($this->utilisateur->prenomU);?></strong></p><br>
-		<p><strong>Nom : <?php echo ($this->utilisateur->nomU);?></strong></p><br>-->
-   <!--a href="mailto:#"><?php echo $this->contact->email; ?></a-->
+   <strong><?php echo ($this->utilisateur->pseudo);?></strong><br>
+   <a href="mailto:#"><?php echo $this->utilisateur->adresseMail; ?></a>
    <footer>
 	   <hr>
 	   <p class="text-center"><a href='<?php echo BASE_URL?>'>retour à la page d'acceuil</a></p>
