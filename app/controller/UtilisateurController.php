@@ -9,7 +9,7 @@ class UtilisateurController extends Controller {
   
 	public function afficherUtilisateur() {
 		$id = $this->route["params"]["pseudo"];
-		$this->view->utilisateur = Utilisateur::getFromPseudo($pseudo);
+		$this->view->utilisateur = Utilisateur::getFromPseudo($id);
 		$this->view->display();
 	}
 }

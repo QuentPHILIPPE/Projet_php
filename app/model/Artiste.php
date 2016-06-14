@@ -52,6 +52,7 @@ class Artiste {
  
 	
 	public static function ajouterArtiste($nom,$lien)	{
+		extract($_POST);
 		$db = Database::getInstance();
 		$sql = "INSERT INTO artiste (nomArtiste,lienWiki) VALUES (:nomArtiste,:lienWiki)";
 		$stmt = $db->prepare($sql);
