@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,25 +16,26 @@
 					<li> <a href="#">A propos</a></li>
 					<li> <a href="<?php echo BASE_URL.'/connexion';?>">Connexion</a></li>
 				</ul>
-				<h3 class="muted">Réseau social Musique</h3>
+				<h3 class="muted">Inscris toi !</h3>
 		</div>
     <form method="post" action="<?php echo BASE_URL.'/inscription';?>">
 			<table>
 				<label for="">Pseudo</label>
         <input type="text" name="pseudo" placeholder="Pseudo" value="<?php if(isset($_POST['pseudo'])){ echo $_POST['pseudo']; } ?>" required /><br><br>
         
-        <label for="">AdresseMail </label>
-        <input type="email" name="email" placeholder="adresse@mail.com" value="<?php if(isset($_POST['email'])){ echo $_POST['email']; } ?>" required /><br><br>
+        <label for="">Adresse Mail</label>
+        <input type="email" name="adresseMail" placeholder="adresse@mail.com" value="<?php if(isset($_POST['adresseMail'])){ echo $_POST['adresseMail']; } ?>" required /><br><br>
 
-        <label for="">Mot de passe </label>
-        <input type="password" name="mdp" placeholder="password"/><br><br>
+        <label for="">Mot de passe</label>
+        <input type="password" name="mdpU" placeholder="password"/><br><br>
 
-        <label for="">Confirmer Mot de passe </label>
+        <label for="">Confirmer Mot de passe</label>
         <input type="password" name="mdpConfirm" placeholder="password"/><br><br>
-
-        <button type="submit" id="submit">S'inscrire</button>
+				
+        <input type="submit" value="S'inscrire"/>
 			</table>
 		</form>
+			<?php  InscriptionController::envoiInscription();?>
 			<hr>
 			<div class="text-center">
 				<a href="<?php echo BASE_URL;?>">page d'accueil</a>
