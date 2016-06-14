@@ -1,0 +1,45 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link href="<?php echo BASE_URL.'/css/bootstrap.css';?>" rel="stylesheet" />
+		<title>Connecte toi !</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<ul class="nav nav-pills pull-right">
+					<li> <a href="<?php echo BASE_URL.'/artiste';?>">Artistes</a></li>
+					<li> <a href="<?php echo BASE_URL.'/utilisateur';?>">Utilisateurs</a></li>
+					<li> <a href="<?php echo BASE_URL.'/album';?>">Albums</a></li>
+					<li> <a href="<?php echo BASE_URL.'/contact';?>">Contacts</a></li>
+					<li> <a href="#">A propos</a></li>
+					<li> <a href="<?php echo BASE_URL.'/inscription';?>">Inscription</a></li>
+				</ul>
+				<h3 class="muted">Connexion</h3>
+		  </div>
+      <p class="lead">Connexion </p>
+		  <form method="post" action="<?php echo BASE_URL.'/connexion/verifConnexion';?>">
+        <table>
+          <tr>
+            <td><label>Pseudo: </label></td>
+            <td><input type="text" placeholder="Pseudo" name="pseudo" required/></td>
+          </tr>
+          <tr>
+            <td><label>Mot de passe: </label></td>
+            <td><input type="password" placeholder="Mot de passe" name="mdp" required/></td>
+          </tr>
+          <tr><td></td><td><input type="submit" value="Connexion"/></td></tr>
+        </table>
+		  </form>
+      
+			<hr>
+			<div class="text-center">
+				<a href="<?php echo BASE_URL;?>">page d'accueil</a>
+			</div>
+		</footer>
+    
+	</div>
+</body>
+</html>

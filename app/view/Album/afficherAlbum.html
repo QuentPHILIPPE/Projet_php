@@ -14,7 +14,17 @@
 				<tr><td>Nom de l'album</td><td><?php echo $this->album->nomAlbum ;?></td></tr>
 				<tr><td>Lien LastFM</td><td><a href= "<?php echo $this->album->lienLastFm; ?>">Cliquez ici !</a></td></tr>
 			</table>
-  
+		
+		<div>
+		<h3>Commentaires</h3>
+			<form method="post" action='<?php echo BASE_URL."/album/afficher/".$this->album->idAlbum;?>'>
+				<table>
+					<tr><td><textarea rows="4" cols="220" placeholder="Entrez un commentaire" name="message"></textarea></td></tr>
+					<tr><td><input type="submit" class="ajoutNew" value="Validez" /></td></tr>
+				</table>
+			</form>
+		</div>
+		
 	</div>		
   	
    <footer>

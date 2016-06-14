@@ -14,7 +14,6 @@ class ArtisteController extends Controller {
 	}
 	
 	public function ajouterArtiste() {
-		
   	$data = $this->route["params"]["post"];
     if(isset($data['nom']) && isset($data['lienWiki'])) {
    		$this->view->artiste = Artiste::ajouterArtiste($data['nom'], $data['lienWiki']);
@@ -25,6 +24,5 @@ class ArtisteController extends Controller {
   	//header('location: ajouterArtiste');
 		$this->view->display();
  }
-	
 }
 ?>

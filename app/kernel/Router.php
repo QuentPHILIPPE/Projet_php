@@ -139,6 +139,26 @@ class Router {
 						$result['action'] = "Inscription";
 					}
 				}
+				
+				if($parts[0] == "connexion")  {
+					if (count($parts) == 1){
+						$result["controller"] = "Connexion";
+						$result['action'] = "Connexion";
+					}
+				
+					if ((count($parts) == 2) && ($parts[1] == "verifConnexion")){
+        		$result["controller"] = "Connexion";
+          	$result["action"] = "verifConnexion";         
+			  	}
+				}
+				
+				if($parts[0] == "deconnexion") {
+					if (count($parts) == 1){
+						$result["controller"] = "Connexion";
+						$result['action'] = "deconnexion";
+					}
+				}
+				
 			}
 	  return $result;
    }
