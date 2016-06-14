@@ -6,7 +6,21 @@
    <link href='<?php echo BASE_URL."/css/bootstrap.css";?>' rel="stylesheet" />
 </head>
 <body>
-		
+		<div class="page-header">
+				<ul class="nav nav-pills pull-right">
+					<li> <a href="<?php echo BASE_URL.'/utilisateur';?>">Utilisateur</a></li>
+					<li> <a href="<?php echo BASE_URL.'/artiste';?>">Artistes</a></li>
+					<li> <a href="<?php echo BASE_URL.'/album';?>">Albums</a></li>
+					<li> <a href="<?php echo BASE_URL.'/contact';?>">Contacts</a></li>
+					<li> <a href="#">A propos</a></li>
+					<li> <a href="<?php echo BASE_URL.'/connexion';?>">Connexion</a></li>
+				</ul>
+				<h3 class="muted">Réseau social Musique</h3>
+		</div>
+		<div class="container">
+			<div class="page-header">
+				<h2>Ajoutez un Artiste</h2>
+			</div>
 		</div>
 			<form method="post" action="<?php echo BASE_URL. '/artiste/ajouterArtiste';?>" >
       <table>

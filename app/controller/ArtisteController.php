@@ -20,7 +20,7 @@ class ArtisteController extends Controller {
    		$this->view->artiste = Artiste::ajouterArtiste($data['nom'], $data['lienWiki']);
   	}
    	else {
-   		echo "Un des champs est mal renseigné";
+   		// echo "Un des champs est mal renseigné";
   	}
   	//header('location: ajouterArtiste');
 		$this->view->display();
