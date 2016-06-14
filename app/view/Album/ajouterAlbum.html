@@ -41,9 +41,11 @@
         <tr>
           <td><label for="artiste">Artiste</label></td>
           <td>
-            <select name="artiste"><option value="1">Led Zeppelin</option>
-            <option value="2">Metallica</option>
+            <select name="artiste">
+								<?php foreach($this->list as $album) : ?> 
+							<option value="<?php echo $album->nomArtiste; ?>"> <?php echo $album->nomArtiste; ?> </option> 
             </select>
+						<?php endforeach;?>
           </td>
         
         </tr>

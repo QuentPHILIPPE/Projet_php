@@ -35,6 +35,14 @@ class Album {
 		$stmt->execute($id);
 		return $stmt->fetch();
     }
+	
+	function getArtiste()	{
+		$db = Database::getInstance();
+		$sql = "SELECT DISTINCT nomArtiste FROM artiste";
+		$stmt = $db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$stmt->execute(); 
+	}
     
 	
     function setNom($nom, $id) {
