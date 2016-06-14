@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <meta charset="utf-8"/>
-   <title>Album</title>
-   <link href='<?php echo BASE_URL."/css/bootstrap.css";?>' rel="stylesheet" />
-</head>
-<body>
-	<div class="container">
-		<div class="page-header">
-			<h1><?php echo $this->album->nomAlbum;?></h1>	
-		</div>
+	<head>
+		<meta charset="utf-8"/>
+	<link href="<?php echo BASE_URL.'/css/bootstrap.css';?>" rel="stylesheet" />
+
+		<title>Album</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>Listes des albums</h1>
+			</div>
 			<table class="table table-stripped">
-				<tr><td>Nom de l'album</td><td><?php echo $this->album->nomAlbum ;?></td></tr>
-				<tr><td>Lien LastFM</td><td><a href= "<?php echo $this->album->lienLastFm; ?>">Cliquez ici !</a></td></tr>
+				<thead>
+					<tr>
+						<th>Titre de l'album</th><th>Album</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($this->list as $album) : ?>
+					<tr>
+						<td>
+							<?php echo $album->nomAlbum;?>
+						</td>
+						
+						<td><a href='<?php echo BASE_URL."/album/afficher/".$album->idAlbum;?>' 
+								class="btn btn-info"><i class="icon icon-search"><i></a></td>
+					</tr>
+							<!--a href="contact/afficher/<?php echo $contact->id;?>"></a></td><td><?php echo $contact->prenom." ".$contact->nom;?></td></tr-->
+					<?php endforeach;?>
+				</tbody>
 			</table>
-  
-	</div>		
-  	
-   <footer>
-	   <hr>
-	   <p class="text-center"><a href='<?php echo BASE_URL?>'>retour à la page d'acceuil</a></p>
-   </footer>
-   </div>
-</body>
+			<footer>
+				<hr>
+				<div class="text-center">
+					<a href="<?php echo BASE_URL;?>">page d'accueil</a>
+				</div>
+			</footer>
+		</div>
+	</body>
 </html>
