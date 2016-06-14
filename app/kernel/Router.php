@@ -138,12 +138,7 @@ class Router {
 						$result["controller"] = "Inscription";
 						$result['action'] = "Inscription";
 					}
-					if ((count($parts) == 2) && ($parts[1] == "verifInscription")){
-        	$result["controller"] = "Inscription";
-          $result["action"] = "verifInscription";
-					//$result["params"]["slug"] = $parts[1];
-			  	}			
-	  		}
+				}
 			}
 	  return $result;
    }
