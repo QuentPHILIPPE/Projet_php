@@ -14,24 +14,18 @@
 			<table class="table table-stripped">
 				<thead>
 					<tr>
-						<th>Pseudo</th><th>Prénom</th><th>Nom</th><th>Email</th><th>id</th><th></th>
+						<th>Pseudo</th><th>Email</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach($this->list as $utilisateur) : ?>
 					<tr>
-						<td>
-							<?php echo $utilisateur->pseudo;?>
+						<td><?php echo $utilisateur->pseudo;?>
 						</td>
-						<td><?php echo $utilisateur->prenomU;?>
+						<td><?php echo $utilisateur->adresseMail;?>
 						</td>
-						<td><?php echo $utilisateur->nomU;?>
-						</td>
-						<td><?php echo $utilisateur->email;?>
-						</td>
-						<td><?php echo $utilisateur->idU;?>
-						</td>
-						<td><a href='<?php echo BASE_URL."/utilisateur/afficher/".$utilisateur->idU;?>' 
+						
+						<td><a href='<?php echo BASE_URL."/utilisateur/afficher/".$utilisateur->pseudo;?>' 
 								class="btn btn-info"><i class="icon icon-search"><i></a></td>
 							</tr>
 							<!--a href="contact/afficher/<?php echo $contact->id;?>"></a></td><td><?php echo $contact->prenom." ".$contact->nom;?></td></tr-->
