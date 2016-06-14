@@ -8,6 +8,17 @@
 <body>
 	<div class="container">
 		<div class="page-header">
+				<ul class="nav nav-pills pull-right">
+					<li> <a href="<?php echo BASE_URL.'/utilisateur';?>">Utilisateur</a></li>
+					<li> <a href="<?php echo BASE_URL.'/artiste';?>">Artistes</a></li>
+					<li> <a href="<?php echo BASE_URL.'/album';?>">Albums</a></li>
+					<li> <a href="#">A propos</a></li>
+					<li> <a href="<?php echo BASE_URL.'/connexion';?>">Connexion</a></li>
+				</ul>
+				<h3 class="muted">Album</h3>
+		</div>
+	<div class="container">
+		<div class="page-header">
 			<h1><?php echo $this->album->nomAlbum;?></h1>	
 		</div>
 			<table class="table table-stripped">
@@ -19,8 +30,23 @@
 		<h3>Commentaires</h3>
 			<form method="post" action='<?php echo BASE_URL."/album/afficher/".$this->album->idAlbum;?>'>
 				<table>
-					<tr><td><textarea rows="4" cols="220" placeholder="Entrez un commentaire" name="message"></textarea></td></tr>
-					<tr><td><input type="submit" class="ajoutNew" value="Validez" /></td></tr>
+					<tr>
+						<td><textarea rows="4" cols="220" placeholder="Entrez un commentaire" name="message"></textarea></td>
+					</tr>
+					<tr>
+						<td><input type="submit" class="ajoutNew" value="Validez" /></td>
+					</tr>
+				</table>
+				
+				<h3>Note</h3>
+				<table>
+					<tr>
+						<td><input type="radio" name="note" value="1">1</td>
+		  			<td><input type="radio" name="note" value="2">2</td>
+						<td><input type="radio" name="note" value="3">3</td>
+						<td><input type="radio" name="note" value="4">4</td>
+						<td><input type="radio" name="note" value="5">5</td>
+					</tr>	
 				</table>
 			</form>
 		</div>

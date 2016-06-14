@@ -14,7 +14,7 @@ class AlbumController extends Controller {
 	}
 	
 	public function ajouterAlbum() {
-			$this->view->list = Album::getArtiste();		
+		$this->view->list = Album::getArtiste();		
 		
   	$data = $this->route["params"]["post"];
     if(isset($data['nom']) && isset($data['dateSortie']) && isset($data['lienLastFm']) && isset($data['artiste'])) {

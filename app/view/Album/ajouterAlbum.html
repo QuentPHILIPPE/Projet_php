@@ -6,22 +6,21 @@
    <link href='<?php echo BASE_URL."/css/bootstrap.css";?>' rel="stylesheet" />
 </head>
 <body>
+	<div class="container">
 		<div class="page-header">
 				<ul class="nav nav-pills pull-right">
 					<li> <a href="<?php echo BASE_URL.'/utilisateur';?>">Utilisateur</a></li>
 					<li> <a href="<?php echo BASE_URL.'/artiste';?>">Artistes</a></li>
 					<li> <a href="<?php echo BASE_URL.'/album';?>">Albums</a></li>
-					<li> <a href="<?php echo BASE_URL.'/contact';?>">Contacts</a></li>
 					<li> <a href="#">A propos</a></li>
 					<li> <a href="<?php echo BASE_URL.'/connexion';?>">Connexion</a></li>
 				</ul>
 				<h3 class="muted">Réseau social Musique</h3>
 		</div>
-		<div class="container">
-			<div class="page-header">
-				<h2>Ajoutez un Album</h2>
-			</div>
-		</div>
+	
+				<h3 class="muted">Ajoutez un Album</h3>
+			
+		
 			<form method="post" action="<?php echo BASE_URL. '/album/ajouterAlbum';?>" >
       <table>
         <tr>
@@ -43,11 +42,10 @@
           <td>
             <select name="artiste">
 								<?php foreach($this->list as $album) : ?> 
-							<option value="<?php echo $album->nomArtiste; ?>"> <?php echo $album->nomArtiste; ?> </option> 
+							<option value="<?php echo $album->artiste; ?>"> <?php echo $album->artiste; ?> </option> 
             </select>
 						<?php endforeach;?>
-          </td>
-        
+          </td>     
         </tr>
         
         <tr>
@@ -55,7 +53,7 @@
         </tr>
       </table>
     </form>
-  
+ 
 	   <p class="text-center"><a href='<?php echo BASE_URL?>'>retour à la page d'acceuil</a></p>
   
 		</div>

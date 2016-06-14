@@ -12,9 +12,7 @@ class InscriptionController extends Controller {
 		if(isset($adresseMail) && ($pseudo) && ($mdpU)) {
 			if($mdpU == $mdpConfirm){
 				$sql = "INSERT INTO utilisateur (adresseMail,pseudo,mdpU) VALUES (:adresseMail,:pseudo,:mdpU)";
-				//$mdpU = sha1($mdpU);
 				$stmt = $db->prepare($sql);
-				//$stmt->setFetchMode(PDO::FETCH_CLASS, "Utilisateur");
 				$stmt->bindParam(":adresseMail", $adresseMail);
 				$stmt->bindParam(":pseudo", $pseudo);
 				$stmt->bindParam(":mdpU", $mdpU);
@@ -25,8 +23,6 @@ class InscriptionController extends Controller {
 				":adresseMail" => $adresseMail,
 				":pseudo" => $pseudo,
 				":mdpU" => $mdpU));
-			
-				
 			
 			} else {
 				echo "mots de passe différents";

@@ -9,7 +9,14 @@
 	<body>
 		<div class="container">
 			<div class="page-header">
-				<h1>Listes des utilisateurs</h1>
+				<ul class="nav nav-pills pull-right">
+					<li> <a href="<?php echo BASE_URL.'/utilisateur';?>">Utilisateurs</a></li>
+					<li> <a href="<?php echo BASE_URL.'/artiste';?>">Artistes</a></li>
+					<li> <a href="<?php echo BASE_URL.'/album';?>">Albums</a></li>
+					<li> <a href="#">A propos</a></li>
+					<li> <a href="<?php echo BASE_URL.'/connexion';?>">Connexion</a></li>
+				</ul>
+				<h3 class="muted">Utilisateurs</h3>
 			</div>
 			<table class="table table-stripped">
 				<thead>
