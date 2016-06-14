@@ -16,8 +16,8 @@ class ArtisteController extends Controller {
 	public function ajouterArtiste() {
 		
   	$data = $this->route["params"]["post"];
-    if(isset($data['nomArtiste']) && isset($data['lienWiki'])) {
-   		$this->view->artiste = Artiste::ajouterArtiste($data['nomArtiste'], $data['lienWiki']);
+    if(isset($data['nom']) && isset($data['lienWiki'])) {
+   		$this->view->artiste = Artiste::ajouterArtiste($data['nom'], $data['lienWiki']);
   	}
    	else {
    		echo "Un des champs est mal renseigné";
