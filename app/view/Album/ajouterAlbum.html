@@ -39,9 +39,15 @@
         </tr>
         
         <tr>
-          <td><select name="artiste">Artiste</td>
-          <td><option value="LZ">LZ</option></td>
-        </select>
+          <td><label for="artiste">Artiste</label></td>
+          <td>
+            <select name="artiste">
+								<?php foreach($this->list as $album) : ?> 
+							<option value="<?php echo $album->nomArtiste; ?>"> <?php echo $album->nomArtiste; ?> </option> 
+            </select>
+						<?php endforeach;?>
+          </td>
+        
         </tr>
         
         <tr>
