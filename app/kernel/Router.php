@@ -126,10 +126,10 @@ class Router {
 			  	}	
 					
 					if ((count($parts) == 2) && ($parts[1] == "ajouterAlbum")) {
-						$result["controller"] = "Artiste";
+						$result["controller"] = "Album";
 						$result["action"] = "ajouterAlbum";
 				 		$result["params"]["post"]= $_POST;
-				 		$result["redirection"] = "afficherAlbum";
+				 		
 					}	
 				}
 

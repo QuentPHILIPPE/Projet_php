@@ -7,28 +7,7 @@ class Album {
 		public $note; // int
 		public $artiste;
 		public $lienLastFm;
- /*   
-	function __construct($nom,$note)	{
-        $this->id = $id;
-				$this->nomAlbum = $nom;
-				$this->dateSortie = $date;
-        $this->note = $note;
-				$this->artiste = $artiste;
-        $this->lienLastFm = $lien;
-		
-        $db = Database::getInstance();
-		$sql = "INSERT INTO Album SET nomAlbum = :nom, note = :note";
-		$stmt = $db->prepare($sql);
-		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute($nom,$note);
-        
-        $sql = "SELECT idAlbum FROM Album WHERE nomAlbum = :nom";
-		$stmt = $db->prepare($sql);
-		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute($nom);
-		$this->idAlbum = $stmt->fetch(); 
-    }
-  */  
+
     function getNom() {
         $db = Database::getInstance();
 		$sql = "SELECT nomAlbum FROM Album WHERE idAlbum = :id";
