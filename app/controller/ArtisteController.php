@@ -22,7 +22,7 @@ class ArtisteController extends Controller {
    	else {
    		echo "Un des champs est mal renseigné";
   	}
-  	header('location: ajouterArtiste');
+  	//header('location: ajouterArtiste');
 		$this->view->display();
  }
 	
