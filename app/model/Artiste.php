@@ -55,6 +55,8 @@ class Artiste {
 		$db = Database::getInstance();
 		$sql = "INSERT INTO artiste (nomArtiste,lienWiki) VALUES (:nomArtiste,:lienWiki)";
 		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':nomArtiste', $nom);
+		$stmt->bindParam(':lienwiki', $lienWiki);
 		//$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
 		echo "Artiste bien inséré";
 		return $stmt->execute(array(
