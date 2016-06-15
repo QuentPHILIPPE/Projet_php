@@ -9,30 +9,47 @@
 	<body>
 		<div class="container">
 			<div class="page-header">
-				<h1>Listes des contacts</h1>
-			</div>
-			<table class="table table-stripped">
-				<thead>
-					<tr>
-						<th>Prénom</th><th>Nom</th><th>Email</th><th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach($this->list as $contact) : ?>
-					<tr>
-						<td>
-							<?php echo $contact->prenom;?>
-						</td>
-						<td><?php echo $contact->nom;?>
-						</td>
-						<td><?php echo $contact->email;?></td>
-						<td><a href='<?php echo BASE_URL."/contact/afficher/".$contact->id;?>' 
-								class="btn btn-info"><i class="icon icon-search"><i></a></td>
-							</tr>
-							<!--a href="contact/afficher/<?php echo $contact->id;?>"></a></td><td><?php echo $contact->prenom." ".$contact->nom;?></td></tr-->
-					<?php endforeach;?>
-				</tbody>
-			</table>
+				<ul class="nav nav-pills pull-right">
+					<li> <a href="<?php echo BASE_URL.'/utilisateur';?>">Utilisateurs</a></li>
+					<li> <a href="<?php echo BASE_URL.'/artiste';?>">Artistes</a></li>
+					<li> <a href="<?php echo BASE_URL.'/album';?>">Albums</a></li>
+					<li> <a href="#">A propos</a></li>
+					
+					<div>
+						<h3>
+							Ce projet a été réalisé par Simon VASSEUR et Quentin PHILIPPE.
+						</h3>
+						<p>
+							Repartition des taches <br> Simon<br>
+							
+							affichages des lites (artiste, utilisateur)</br>
+							Ajout des artistes formulaire d'ajout<br>
+							Ajout des albums formulaire d'ajout</br>
+							Gestion commentaire et notes peut ajouter seulement si connecté (à deux)</br></br>
+						
+						Quentin<br>
+						
+							Affichages des listes (albums,contacts)</br>
+							Pages de detail d'un album ou artistes</br>
+							Gestion commentaire et notes (à deux)</br>
+							Inscription </br>
+							Connexion </br><br>
+
+		
+				</p>
+		
+		<p>Ce que le site permet de faire</br>
+			
+				s'inscrire</br>
+				Avoir son compte utilisateur</br>
+				Consulter des artistes et des albums </br>
+				Ajouter des artistes ou des albums </br>
+				Mettre un commentaire et/ou une note sur un album</br>	
+				Noter un album (une seule note, modifiable)</br>
+			
+		</p>
+				</div>
+					
 			<footer>
 				<hr>
 				<div class="text-center">
