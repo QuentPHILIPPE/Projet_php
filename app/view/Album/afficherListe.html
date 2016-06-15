@@ -19,11 +19,11 @@
 				<h3 class="muted">Albums</h3>
 		</div>
 	
-				<h3>Ajoutez un Album</h3>
+				<h3>Liste des Albums</h3>
 			<table class="table table-stripped">
 				<thead>
 					<tr>
-						<th>Titre de l'album</th><th>Album</th>
+						<th>Titre de l'album</th><th>Artiste</th><th>Album</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,6 +31,10 @@
 					<tr>
 						<td>
 							<?php echo $album->nomAlbum;?>
+						</td>
+							
+						<td>
+							<?php echo $album->nomArtiste;?>
 						</td>
 						
 						<td><a href='<?php echo BASE_URL."/album/afficher/".$album->idAlbum;?>' 

@@ -38,7 +38,7 @@ class Album {
 	
 	function getArtiste()	{
 		$db = Database::getInstance();
-		$sql = "SELECT DISTINCT nomArtiste FROM artiste";
+		$sql = "SELECT DISTINCT nomArtiste, idArtiste FROM artiste";
 		$stmt = $db->query($sql);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
 		//$stmt->execute(); 
@@ -72,20 +72,30 @@ class Album {
     
 	public static function getList() {
 	$db = Database::getInstance();
-	$sql = "SELECT * FROM album";
+	$sql = "SELECT idAlbum, nomAlbum, dateSortie, note, artiste, lienLastFm, nomArtiste FROM album, artiste WHERE artiste = idArtiste";
 	$stmt = $db->query($sql);
 	$stmt->setFetchMode(PDO::FETCH_CLASS, "Album");
 	return $stmt->fetchAll();
 		
 	}
 
-	public static function ajoutAlbum($nom,$date,$note,$artiste,$lien) {
+	public static function ajouterAlbum($nomAlbum,$dateSortie,$lienLastFm,$artiste) {
+		extract($_POST);
 		$db = Database::getInstance();
-		$sql = "INSERT INTO album (nomAlbum,dateSortie,note,artiste,lien) VALUES (:nomAlbum,:dateSortie,:note,:artiste,:lien)";
+		$sql = "INSERT INTO album (nomAlbum,dateSortie,lienLastFm,artiste) VALUES (:nomAlbum,:dateSortie,:lienLastFm,:artiste)";
 		$stmt = $db->prepare($sql);
+		echo "MMMMM";
+		$stmt->bindParam(':nomAlbum', $nomAlbum);
+		$stmt->bindParam(':dateSortie', $dateSortie);
+		$stmt->bindParam(':lienLastFm', $lienLastFm);
+		$stmt->bindParam(':artiste', $artiste);
 		//$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
 		echo "Album bien ajouté !";
-		return $stmt->execute([$nom,$date,$note,$artiste,$lien]);
+		return $stmt->execute(array(
+			":nomAlbum" => $nomAlbum,
+			":dateSortie" => $dateSortie,
+			":lienLastFm" => $lienLastFm,
+			":artiste" => $artiste));
  	}
 	
 	public static function getFromId($id) {

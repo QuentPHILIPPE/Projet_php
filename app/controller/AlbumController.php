@@ -4,6 +4,7 @@ class AlbumController extends Controller {
 	
 	public function afficherListe(){
 		$this->view->list = Album::getList();
+		$this->view->artiste = Album::getArtiste();
 		$this->view->display(); 
 	}
   
@@ -17,11 +18,11 @@ class AlbumController extends Controller {
 		$this->view->list = Album::getArtiste();		
 		
   	$data = $this->route["params"]["post"];
-    if(isset($data['nom']) && isset($data['dateSortie']) && isset($data['lienLastFm']) && isset($data['artiste'])) {
-   		$this->view->album = Album::ajouterAlbum($data['nom'], $data['dateSortie'], $data['lienLastFm'], $data['artiste'] );
+    if(isset($data['nomAlbum']) && isset($data['dateSortie']) && isset($data['lienLastFm']) && isset($data['artiste'])) {
+   		$this->view->album = Album::ajouterAlbum($data['nomAlbum'], $data['dateSortie'], $data['lienLastFm'], $data['artiste'] );
   	}
    	else {
-   		// echo "Un des champs est mal renseigné";
+   		 echo "Un des champs est mal renseigné";
   	}
   	
 		$this->view->display();

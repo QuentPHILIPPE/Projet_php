@@ -24,8 +24,8 @@
 			<form method="post" action="<?php echo BASE_URL. '/album/ajouterAlbum';?>" >
       <table>
         <tr>
-          <td><label for="nom">Nom de l'album</label></td>
-          <td><input type="text" placeholder="Nom" name="nom" required><br></td>
+          <td><label for="nomAlbum">Nom de l'album</label></td>
+          <td><input type="text" placeholder="Nom" name="nomAlbum" required><br></td>
         </tr>
         <tr>
           <td><label for="dateSortie">Date de Sortie</label></td>
@@ -42,7 +42,7 @@
           <td>
             <select name="artiste">
 								<?php foreach($this->list as $album) : ?> 
-							<option value="<?php echo $album->nomArtiste; ?>"> <?php echo $album->nomArtiste; ?> </option>
+							<option name="artiste" value="<?php echo $album->idArtiste; ?>"> <?php echo $album->nomArtiste; ?> </option>
 							<?php endforeach;?>
             </select>
 						
