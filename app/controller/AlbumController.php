@@ -22,7 +22,7 @@ class AlbumController extends Controller {
    		$this->view->album = Album::ajouterAlbum($data['nomAlbum'], $data['dateSortie'], $data['lienLastFm'], $data['artiste'] );
   	}
    	else {
-   		 echo "Un des champs est mal renseigné";
+   		 // echo "Un des champs est mal renseigné";
   	}
   	
 		$this->view->display();
