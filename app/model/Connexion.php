@@ -2,7 +2,7 @@
 class Connexion extends Model {
 	public $pseudo, $mdp ;
   
-	public static function verifConnexion($pseudo,$mdp) {
+	public static function validConnexion($pseudo,$mdp) {
     
 		$db = Database::getInstance();
 		$sql = "SELECT * FROM utilisateur WHERE pseudo = :pseudo";

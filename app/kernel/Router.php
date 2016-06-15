@@ -146,9 +146,9 @@ class Router {
 						$result['action'] = "Connexion";
 					}
 				
-					if ((count($parts) == 2) && ($parts[1] == "verifConnexion")){
+					if ((count($parts) == 2) && ($parts[1] == "validConnexion")){
         		$result["controller"] = "Connexion";
-          	$result["action"] = "verifConnexion";         
+          	$result["action"] = "validConnexion";         
 			  	}
 				}
 				
