@@ -39,9 +39,10 @@ class Album {
 	function getArtiste()	{
 		$db = Database::getInstance();
 		$sql = "SELECT DISTINCT nomArtiste FROM artiste";
-		$stmt = $db->prepare($sql);
-		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute(); 
+		$stmt = $db->query($sql);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
+		//$stmt->execute(); 
+		return $stmt->fetchAll();
 	}
     
 	
