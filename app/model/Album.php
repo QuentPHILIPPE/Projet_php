@@ -9,7 +9,7 @@ class Album {
 		public $lienLastFm;
 
     function getNom() {
-        $db = Database::getInstance();
+    $db = Database::getInstance();
 		$sql = "SELECT nomAlbum FROM Album WHERE idAlbum = :id";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -42,6 +42,17 @@ class Album {
 		$stmt = $db->query($sql);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Artiste");
 		//$stmt->execute(); 
+		return $stmt->fetchAll();
+	}
+	
+	function getCommentaire($id)	{
+		$db = Database::getInstance();
+		$sql = "SELECT * FROM commentaire WHERE album =:idAlbum";
+		
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':idAlbum', $id);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "Commentaire");
+		$stmt->execute();
 		return $stmt->fetchAll();
 	}
     
@@ -84,7 +95,6 @@ class Album {
 		$db = Database::getInstance();
 		$sql = "INSERT INTO album (nomAlbum,dateSortie,lienLastFm,artiste) VALUES (:nomAlbum,:dateSortie,:lienLastFm,:artiste)";
 		$stmt = $db->prepare($sql);
-		echo "MMMMM";
 		$stmt->bindParam(':nomAlbum', $nomAlbum);
 		$stmt->bindParam(':dateSortie', $dateSortie);
 		$stmt->bindParam(':lienLastFm', $lienLastFm);

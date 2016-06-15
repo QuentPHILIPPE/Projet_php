@@ -65,6 +65,30 @@
 			</form>
 		</div>
 		
+		<table class="table table-stripped">
+				<thead>
+					<tr>
+						<th>Utilisateur</th><th>Commentaire</th><th>Note</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($this->comment as $comment) : ?>
+					<tr>
+						<td>
+							<?php echo $comment->pseudo;?>
+						</td>
+							
+						<td>
+							<?php echo $comment->message;?>
+						</td>
+						<td>
+							<?php echo $comment->note;?>
+						</td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+		</table>
+		
 	</div>		
   	
    <footer>
