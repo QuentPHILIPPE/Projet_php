@@ -118,6 +118,14 @@ class Router {
 					  $result["action"] = "afficherAlbum";
 					  $result["params"]["id"] = $parts[2];        
 					}
+				
+					if ((count($parts) == 4) && ($parts[1] == "afficher") && ($parts[0] == "album") && ($parts[2] == "commentaire")){
+					  $result["controller"] = "Commentaire";
+					  $result["action"] = "ajouterCommentaire";
+					  $result["params"]["post"] = $_POST;    
+					}
+				
+				
 					if ((count($parts) == 3) && ($parts[1] == "modifier")){
 				  	$result["controller"] = "Album";
 				  	$result["action"] = "modifierAlbum";

@@ -28,7 +28,7 @@
 		
 		<div>
 		<h3>Commentaires</h3>
-			<form method="post" action='<?php echo BASE_URL."/album/afficher/".$this->album->idAlbum;?>'>
+			<form method="post" target="_blank" action='<?php echo BASE_URL."/album/afficher/commentaire/?id=".$this->album->idAlbum;?>'>
 				<table>
 					<tr>
 						<td><textarea rows="4" cols="220" placeholder="Entrez un commentaire" name="message"></textarea></td>
@@ -44,7 +44,7 @@
 						<td><input type="radio" name="note" value="3">3</td>
 						<td><input type="radio" name="note" value="4">4</td>
 						<td><input type="radio" name="note" value="5">5</td>
-						<td><input type="submit" class="ajoutNew" value="Validez" /></td>
+						<td><input type="submit" class="ajoutNew" value="Validez"></td>
 					</tr>	
 				</table>
 			</form>
