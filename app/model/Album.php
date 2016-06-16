@@ -27,12 +27,13 @@ class Album {
     }
   
 	
-		function getNote() {
-        $db = Database::getInstance();
-		$sql = "SELECT note FROM Album WHERE idAlbum = :id";
+		function getNote($id) {
+    $db = Database::getInstance();
+		$sql = "SELECT AVG(note) AS totalnote FROM commentaire WHERE album = :id";
 		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id', $id);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmt->execute($id);
+		$stmt->execute();
 		return $stmt->fetch();
     }
 	
@@ -110,7 +111,7 @@ class Album {
 	
 	public static function getFromId($id) {
 		$db = Database::getInstance();
-		$sql = "SELECT * FROM album WHERE idAlbum =:idAlbum";
+		$sql = "SELECT idAlbum, nomAlbum, dateSortie, note, artiste, lienLastFm, nomArtiste FROM album, artiste WHERE idAlbum =:idAlbum AND idArtiste = artiste";
 		$stmt = $db->prepare($sql);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "album");
 		$stmt->execute(array(":idAlbum" => $id));

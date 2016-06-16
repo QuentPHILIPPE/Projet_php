@@ -12,6 +12,7 @@ class AlbumController extends Controller {
 		$id = $this->route["params"]["id"];
 		$this->view->album = Album::getFromId($id);
 		$this->view->comment = Album::getCommentaire($id);
+		$this->view->note = Album::getNote($id);
 		$this->view->display();
 	}
 	
